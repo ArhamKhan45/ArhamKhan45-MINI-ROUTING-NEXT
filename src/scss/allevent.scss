@@ -1,0 +1,110 @@
+@use "_mycolor" as mycolor;
+
+@mixin custom-flex(
+  $direction: unset,
+  $justify-content: unset,
+  $align-items: unset
+) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+.allevent-heading {
+  color: red;
+
+  button {
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    margin: 10px 50px;
+    color: mycolor.$btn-color;
+    background-color: mycolor.$btn-bg-color;
+    &:active {
+      opacity: 0.8;
+    }
+  }
+}
+.events-item {
+  @include custom-flex(row, unset, unset);
+  border: 2px solid rgb(239, 234, 245);
+  box-sizing: border-box;
+  width: 700px;
+  border-radius: 8px;
+  margin: 25px auto;
+  box-shadow: 4px 14px 12px 11px whitesmoke;
+
+  div:nth-child(1) {
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  div:nth-child(2) {
+    margin: 20px;
+    h5,
+    p {
+      width: 170px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: rgba(136, 132, 132, 0.712);
+    }
+  }
+  div:nth-child(2) {
+    width: 200px;
+    h3 {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+  }
+  div:nth-child(3) {
+    width: 135px;
+
+    margin: 20px;
+    button {
+      padding: 10px 15px;
+      font-size: 20px;
+      border-radius: 8px;
+      border: none;
+      color: mycolor.$btn-color;
+      background-color: mycolor.$btn-bg-color;
+      &:active {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// media query
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .allevent-heading {
+    text-align: center;
+  }
+  .events-item {
+    @include custom-flex(row, center, unset);
+
+    width: auto;
+    padding: 30px 0px;
+
+    div:nth-child(1) {
+      img {
+        width: auto;
+      }
+    }
+    div:nth-child(2) {
+      h5,
+      p {
+        width: auto;
+      }
+    }
+    div:nth-child(2) {
+      width: auto;
+    }
+    div:nth-child(3) {
+      width: auto;
+    }
+  }
+}
