@@ -3,15 +3,10 @@
 import DynamicContentDisplay from "@/components/DynamicContentDisplay";
 import { DUMMY_EVENTS } from "@/data/dummy-data";
 
-import {
-  useParams,
-  useRouter,
-  usePathname,
-  useSearchParams,
-} from "next/navigation";
+import { useParams } from "next/navigation";
 import React from "react";
 
-function page() {
+function Page() {
   const customuseParams = useParams();
   // const customuseRouter = useRouter();
   // const customusePathname = usePathname();
@@ -43,4 +38,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
